@@ -9,6 +9,8 @@ import {
 } from 'react-router-dom'
 
 import Home from './pages/Home';
+import Pautas from './pages/Pautas';
+import Vereadores from './pages/Vereadores';
 import Sobre from './pages/Sobre';
 
 class App extends Component {
@@ -18,6 +20,8 @@ class App extends Component {
         <MenuBar></MenuBar>
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route path="/pautas" component={Pautas}/>
+          <Route path="/vereadores" component={Vereadores}/>
           <Route path="/sobre" component={Sobre}/>
           <Redirect to="/" />
         </Switch>

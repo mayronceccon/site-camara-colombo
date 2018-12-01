@@ -29,7 +29,7 @@ export default class MenuExampleStackable extends Component {
           Home
         </Menu.Item>
 
-        {/* <Menu.Item
+        <Menu.Item
           to='/pautas'
           as={Link}
           name='pautas'
@@ -37,7 +37,17 @@ export default class MenuExampleStackable extends Component {
           onClick={this.handleItemClick}
         >
           Pautas
-        </Menu.Item> */}
+        </Menu.Item>
+
+        <Menu.Item
+          to='/vereadores'
+          as={Link}
+          name='pautas'
+          active={activeItem === 'vereadores'}
+          onClick={this.handleItemClick}
+        >
+          Vereadores
+        </Menu.Item>
 
         <Menu.Item 
           to='/sobre'
