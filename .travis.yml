@@ -18,4 +18,4 @@ addons:
     packages:
       - sshpass
 after_success:
-  - sshpass -p ${pass_scp} scp -o stricthostkeychecking=no -r ./build/* ${user_scp}@${server_scp}:/home/${user_scp}/teste
+  - sshpass -p ${pass_scp} scp -o stricthostkeychecking=no -r ./build/* ${user_scp}@${server_scp}:/home/${user_scp}/site/build
