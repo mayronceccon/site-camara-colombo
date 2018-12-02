@@ -13,3 +13,9 @@ notifications:
       - mayron.ceccon@gmail.com
     on_success: always
     on_failure: always
+env:
+  global:
+  - 'USER_SCP=[user_scp]'
+  - 'PASS_SCP=[pass_scp]'
+after_success:
+  - scp ./build/* ${USER_SCP}@${PASS_SCP}:/home/dados-colombo/site/build
