@@ -17,5 +17,11 @@ env:
   global:
   - 'USER_SCP=[user_scp]'
   - 'PASS_SCP=[pass_scp]'
+  - 'SERVER_SCP=[server_scp]'
+addons:
+  apt:
+    packages:
+      - sshpass
 after_success:
-  - scp ./build/* ${USER_SCP}@${PASS_SCP}:/home/dados-colombo/site/build
+  - export SSHPASS=$PASS_SCP
+  - sshpass -e scp ./build/* ${USER_SCP}@${SERVER_SCP}:/home/dados-colombo/site/build
