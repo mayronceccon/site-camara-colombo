@@ -6,3 +6,16 @@ cache:
   - node_modules
 script:
   - npm test
+  - npm run build
+notifications:
+  email:
+    recipients:
+      - mayron.ceccon@gmail.com
+    on_success: always
+    on_failure: always
+addons:
+  apt:
+    packages:
+      - sshpass
+after_success:
+  - sshpass -p ${pass_scp} scp -o stricthostkeychecking=no -r ./build/* ${user_scp}@${server_scp}:/home/${user_scp}/site/build
