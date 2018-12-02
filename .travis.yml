@@ -24,4 +24,5 @@ addons:
       - sshpass
 after_success:
   - export SSHPASS=$PASS_SCP
-  - sshpass -e scp ./build/* ${USER_SCP}@${SERVER_SCP}:/home/dados-colombo/site/build
+  - echo $SERVER_SCP
+  - sshpass -e scp ./build/* $USER_SCP@$SERVER_SCP:/home/dados-colombo/site/build
