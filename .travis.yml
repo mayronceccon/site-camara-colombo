@@ -13,16 +13,11 @@ notifications:
       - mayron.ceccon@gmail.com
     on_success: always
     on_failure: always
-env:
-  global:
-  - 'USER_SCP=[user_scp]'
-  - 'PASS_SCP=[pass_scp]'
-  - 'SERVER_SCP=[server_scp]'
 addons:
   apt:
     packages:
       - sshpass
 after_success:
-  - export SSHPASS=$PASS_SCP
-  - echo $SERVER_SCP
-  - sshpass -e scp ./build/* $USER_SCP@$SERVER_SCP:/home/dados-colombo/site/build
+  - echo $server_scp
+  - export SSHPASS=$pass_scp
+  - sshpass -e scp ./build/* $user_scp@$server_scp:/home/dados-colombo/site/build
