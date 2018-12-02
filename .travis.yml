@@ -18,4 +18,4 @@ addons:
     packages:
       - sshpass
 after_success:
-  - sshpass -v -p ${pass_scp} scp -r ./build/* ${user_scp}@${server_scp}:/home/dados-colombo/teste
+  - sshpass -p ${pass_scp} scp -r ./build/* ${user_scp}@${server_scp}:/home/dados-colombo/teste
