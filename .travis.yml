@@ -6,3 +6,9 @@ cache:
   - node_modules
 script:
   - npm test
+notifications:
+  email:
+    recipients:
+      - mayron.ceccon@gmail.com
+    on_success: always
+    on_failure: always
