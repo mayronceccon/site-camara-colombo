@@ -19,4 +19,4 @@ addons:
       - sshpass
 after_success:
   - sshpass -p ${pass_scp} scp -o stricthostkeychecking=no -r ./build/* ${user_scp}@${server_scp}:/home/${user_scp}/site/build
-  - sshpass -p ${pass_scp} ssh -o StrictHostKeyChecking=no ${user_scp}@${server_scp} sh /home/${user_scp}/site/deploy.sh
+  - sshpass -p ${pass_scp} ssh -o StrictHostKeyChecking=no ${user_scp}@${server_scp} "cd /home/${user_scp}/site && sh deploy.sh"
