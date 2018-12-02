@@ -8,7 +8,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
-// import Home from './pages/Home';
+import Home from './pages/Home';
 import Pautas from './pages/Pautas';
 import Vereadores from './pages/Vereadores';
 import Sobre from './pages/Sobre';
@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         <MenuBar></MenuBar>
         <Switch>
-          <Route exact path="/" component={Pautas}/>
+          <Route exact path="/" component={Home}/>
           <Route path="/pautas" component={Pautas}/>
           <Route path="/vereadores" component={Vereadores}/>
           <Route path="/sobre" component={Sobre}/>
