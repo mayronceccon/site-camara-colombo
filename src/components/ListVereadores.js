@@ -50,9 +50,9 @@ export default class ListVereadores extends Component {
         return <div>Loading...</div>;
       } else {
         return (
-          <Card.Group>
+          <Card.Group centered>
             {items.map(item => (                  
-              <Card.Content key={item.id}>
+              <Card.Content className="card-vereador" key={item.id}>
                 <CardVereador dados={item}></CardVereador>
               </Card.Content>
             ))}

@@ -10,7 +10,7 @@ const formatData = (data) => (
 )
 
 const CardVereador = (props) => (
-  <Card key={props.dados.id}>
+  <Card color='grey' key={props.dados.id}>
     <Image src={props.dados.foto} />
     <Card.Content>
       <Card.Header>{props.dados.nome}</Card.Header>
