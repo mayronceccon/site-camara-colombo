@@ -1,6 +1,6 @@
 {
   "name": "Câmara Colombo",
-  "short_name": "Câmara Colombo",
+  "short_name": "CBLO",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
@@ -44,7 +44,7 @@
     }
   ],
   "splash_pages": null,
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
