@@ -9,6 +9,22 @@ const formatData = (data) => (
   </Moment>
 )
 
+function DataAniversario(props) {
+  const aniversario = props.data;
+  if (aniversario) {
+    return <span><Icon circular name='birthday' />{formatData(aniversario)}<br/></span>
+  }
+  return null
+}
+
+function Observacao(props) {
+  const observacao = props.observacao;
+  if (observacao) {
+    return <Card.Description>{observacao}</Card.Description>
+  }
+  return null
+}
+
 const CardVereador = (props) => (
   <Card color='grey' key={props.dados.id}>
     <Image src={props.dados.foto} />
@@ -17,12 +33,12 @@ const CardVereador = (props) => (
       <Card.Meta>
         {props.dados.apelido}
       </Card.Meta>
-      <Card.Description>{props.dados.observacao}</Card.Description>
+      <Observacao observacao={props.dados.observacao}/>
     </Card.Content>
     <Card.Content extra>
-        <Icon circular name='birthday' /><span>{formatData(props.dados.data_nascimento)}</span><br/>
-        <Icon circular name='mail' />{props.dados.email}<br/>
-        <Icon circular name='phone' />{props.dados.telefone_gabinete}<br/>
+      <DataAniversario data={props.dados.data_nascimento} />
+      <Icon circular name='mail' />{props.dados.email}<br/>
+      <Icon circular name='phone' />{props.dados.telefone_gabinete}<br/>
     </Card.Content>
   </Card>
 )
