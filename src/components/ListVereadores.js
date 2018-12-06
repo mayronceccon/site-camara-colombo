@@ -19,9 +19,13 @@ export default class ListVereadores extends Component {
         .then(res => res.json())
         .then(
           (result) => {
+            let vereadores = result.results;
+            //localStorage.setItem('vereadores', JSON.stringify(vereadores));
+            //let cache = JSON.parse(localStorage.getItem('vereadores'))
+
             this.setState({
               isLoaded: true,
-              items: result.results
+              items: vereadores
             });
           },
           // Note: it's important to handle errors here
@@ -44,7 +48,7 @@ export default class ListVereadores extends Component {
 
     render() {
       const { error, isLoaded, items } = this.state;
-      if (error) {
+      if (error) {        
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return <div>Loading...</div>;
