@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { List } from 'semantic-ui-react'
 import Moment from 'react-moment';
 import 'moment-timezone';
+import { Button, List } from 'semantic-ui-react'
 
 export default class ListPautas extends Component {
     constructor(props) {
@@ -50,14 +50,17 @@ export default class ListPautas extends Component {
       } else {
         return (
           <List divided relaxed>
-            {items.map(item => (             
+            {items.map(item => (
               <List.Item key={item.id}>
-                <List.Icon name='file pdf outline' size='large' verticalAlign='middle' />
-                <List.Content>
-                  <List.Header><a target="__blank" href={item.link}>{item.descricao}</a></List.Header>
-                  <List.Description as='a'>{this.formatData(item.data_sessao)}</List.Description>
+                <List.Content floated='right'>
+                  <Button target="__blank" href={item.link}>
+                    <List.Icon name='download' size='small' verticalAlign='middle' />
+                    Baixar
+                  </Button>
                 </List.Content>
-              </List.Item>            
+                <List.Icon name='file pdf outline' size='big' verticalAlign='middle' />
+                <List.Content verticalAlign='middle'>{item.descricao}</List.Content>
+              </List.Item>                  
             ))}
           </List>
         );
