@@ -21,10 +21,10 @@ class App extends Component {
         <MenuBar></MenuBar>
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/pautas" component={Pautas}/>
+          <Route exact path="/pautas" component={Pautas}/>
           <Route exact path="/vereadores" component={Vereadores}/>
+          <Route exact path="/sobre" component={Sobre}/>
           <Route path="/vereadores/:id" component={VereadoresSingle}/>
-          <Route path="/sobre" component={Sobre}/>
           <Redirect to="/" />
         </Switch>
       </div>
