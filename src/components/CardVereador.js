@@ -1,14 +1,14 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
-import Moment from 'react-moment';
-import 'moment-timezone';
+import { Card, Image } from 'semantic-ui-react'
+// import Moment from 'react-moment';
+// import 'moment-timezone';
 import EstatisticaVereador from './EstatisticaVereador';
 
-const formatData = (data) => (
-  <Moment format="DD/MM/YYYY">
-    {data}
-  </Moment>
-)
+// const formatData = (data) => (
+//   <Moment format="DD/MM/YYYY">
+//     {data}
+//   </Moment>
+// )
 
 // function DataAniversario(props) {
 //   const aniversario = props.data;
