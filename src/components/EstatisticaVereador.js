@@ -4,18 +4,20 @@ import { Divider } from 'semantic-ui-react'
 
 
 const EstatisticaVereador = () => (
-  <Statistic.Group widths='two'>
+  <div>
     <Divider horizontal>Solicitações</Divider>
-    <Statistic size='mini'>
-      <Statistic.Label>Projetos</Statistic.Label>
-      <Statistic.Value>0</Statistic.Value>
-    </Statistic>    
+    <Statistic.Group widths='two'>
+      <Statistic size='mini'>
+        <Statistic.Label>Projetos</Statistic.Label>
+        <Statistic.Value>0</Statistic.Value>
+      </Statistic>    
 
-    <Statistic size='mini'>
-      <Statistic.Label>Indicações</Statistic.Label>
-      <Statistic.Value>0</Statistic.Value>
-    </Statistic>   
-  </Statistic.Group>
+      <Statistic size='mini'>
+        <Statistic.Label>Indicações</Statistic.Label>
+        <Statistic.Value>0</Statistic.Value>
+      </Statistic>   
+    </Statistic.Group>
+  </div>
 )
 
 export default EstatisticaVereador
