@@ -35,7 +35,7 @@ const CardVereador = (props) => (
         {props.dados.apelido}
       </Card.Meta>
       {/* <Observacao observacao={props.dados.observacao}/> */}
-      <EstatisticaVereador></EstatisticaVereador>
+      <EstatisticaVereador dados={props.dados}></EstatisticaVereador>
     </Card.Content>
     {/* <Card.Content extra>
       <DataAniversario data={props.dados.data_nascimento} />
