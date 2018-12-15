@@ -49,6 +49,16 @@ export default class MenuExampleStackable extends Component {
           Vereadores
         </Menu.Item>
 
+        <Menu.Item
+          to='/projetos'
+          as={Link}
+          name='projetos'
+          active={activeItem === 'projetos'}
+          onClick={this.handleItemClick}
+        >
+          Projetos
+        </Menu.Item>
+
         <Menu.Item 
           to='/sobre'
           as={Link}
