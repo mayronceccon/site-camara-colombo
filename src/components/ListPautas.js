@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment';
 import 'moment-timezone';
-import { Button, List } from 'semantic-ui-react'
+import { 
+  Button,
+  List,
+  Dimmer, 
+  Loader
+} from 'semantic-ui-react'
 
 export default class ListPautas extends Component {
     constructor(props) {
@@ -46,7 +51,11 @@ export default class ListPautas extends Component {
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return (
+          <Dimmer active>
+            <Loader>Carregando Dados...</Loader>
+          </Dimmer>
+        );
       } else {
         return (
           <List divided relaxed>

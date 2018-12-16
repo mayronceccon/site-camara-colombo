@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import Moment from 'react-moment';
 import 'moment-timezone';
-import { Card } from 'semantic-ui-react'
+import { 
+  Card,
+  Dimmer, 
+  Loader
+} from 'semantic-ui-react'
 import CardVereador from './CardVereador';
 
 export default class ListVereadores extends Component {
@@ -51,7 +55,11 @@ export default class ListVereadores extends Component {
       if (error) {        
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return (
+          <Dimmer active>
+            <Loader>Carregando Dados...</Loader>
+          </Dimmer>
+        );
       } else {
         return (
           <Card.Group centered>

@@ -177,12 +177,16 @@ export default class ListProjetosLeis extends Component {
                 ))}
               </Table.Body>
             </Table>
-            <Pagination 
-              defaultActivePage={1} 
-              activePage={this.state.paginaAtiva}
-              totalPages={this.state.paginas} 
-              onPageChange={this.handlePageClick}
-            />
+            <div className="centered">
+              <Pagination 
+                defaultActivePage={1}
+                totalPages={this.state.paginas} 
+                onPageChange={this.handlePageClick}
+                siblingRange={1}
+                boundaryRange={0}
+                ellipsisItem={null}
+              />
+            </div>
           </div>
         );
       }
