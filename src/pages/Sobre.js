@@ -35,7 +35,7 @@ class Sobre extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
             <p>
-              Desenvolvido para facilitar a consulta das informações disponibilizadas no site 
+              Desenvolvido para facilitar a consulta das informações disponibilizadas no site&nbsp;
               <a 
                 target="_blank" 
                 rel="noopener noreferrer" 
@@ -51,8 +51,7 @@ class Sobre extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>
             <p>
-              Não temos responsabilidades pelos dados, somente divulgamos, qualquer divergência encontrada entrar em contato diretamente
-              com a Prefeitura Municipal de Colombo.
+              Os dados são de responsabilidade da Câmara de Vereadores da Prefeitura Municipal de Colombo.
             </p>
           </Accordion.Content>
         </Accordion>
