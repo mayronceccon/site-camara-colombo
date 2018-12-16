@@ -54,6 +54,16 @@ class Sobre extends Component {
               Os dados são de responsabilidade da Câmara de Vereadores da Prefeitura Municipal de Colombo.
             </p>
           </Accordion.Content>
+
+          <Accordion.Title active={activeIndex === 3} index={3} onClick={this.handleClick}>
+            <Icon name='dropdown' />
+            Contato
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === 3}>
+            <p>
+              Para dúvidas ou sugestões entre em contato pelo e-mail&nbsp;<a rel="noopener noreferrer" href="mailto:unofficialcamaracolombo@gmail.com">unofficialcamaracolombo@gmail.com</a>
+            </p>
+          </Accordion.Content>
         </Accordion>
       </div>
     );
