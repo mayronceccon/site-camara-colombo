@@ -8,17 +8,17 @@ const EstatisticaVereador = (props) => (
     <Divider horizontal>Solicitações</Divider>
     <Statistic.Group horizontal>
       <Statistic>
-        <Statistic.Value>{props.dados.legislaturas.quantidade}</Statistic.Value>
+        <Statistic.Value>{props.dados.legislaturas.length}</Statistic.Value>
         <Statistic.Label>Anos de Legislaturas</Statistic.Label>
       </Statistic>
       <Statistic>
-        <Statistic.Value>{props.dados.projetos.quantidade}</Statistic.Value>
+        <Statistic.Value>{props.dados.projetos.length}</Statistic.Value>
         <Statistic.Label>Projetos Apresentados</Statistic.Label>
       </Statistic>
-      {/* <Statistic>
-        <Statistic.Value>X</Statistic.Value>
+      <Statistic>
+        <Statistic.Value>{props.dados.indicacoes.length}</Statistic.Value>
         <Statistic.Label>Indicações</Statistic.Label>
-      </Statistic> */}
+      </Statistic>
     </Statistic.Group>
   </div>
 )
