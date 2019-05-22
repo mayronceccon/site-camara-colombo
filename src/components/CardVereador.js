@@ -1,47 +1,67 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
-// import Moment from 'react-moment';
-// import 'moment-timezone';
+import { Card, Image, Icon, Divider } from 'semantic-ui-react'
+import Moment from 'react-moment';
+import 'moment-timezone';
 import EstatisticaVereador from './EstatisticaVereador';
 
-// const formatData = (data) => (
-//   <Moment format="DD/MM/YYYY">
-//     {data}
-//   </Moment>
-// )
+import { Link } from 'react-router-dom'
 
-// function DataAniversario(props) {
-//   const aniversario = props.data;
-//   if (aniversario) {
-//     return <span><Icon circular name='birthday' />{formatData(aniversario)}<br/></span>
-//   }
-//   return null
-// }
+const formatData = (data) => (
+  <Moment format="DD/MM/YYYY">
+    {data}
+  </Moment>
+)
 
-// function Observacao(props) {
-//   const observacao = props.observacao;
-//   if (observacao) {
-//     return <Card.Description>{observacao}</Card.Description>
-//   }
-//   return null
-// }
+function DataAniversario(props) {
+  const aniversario = props.data;
+  if (aniversario) {
+    return <span><Icon circular name='birthday' />{formatData(aniversario)}<br/></span>
+  }
+  return null
+}
+
+function DadosExtras(props) {
+  let data = props.data;
+  if (data.extra !== true) {
+    return null;
+  }
+  return (
+    <div>
+      <Card.Content extra>
+        <EstatisticaVereador dados={data.dados}></EstatisticaVereador>
+      </Card.Content>
+      <Divider horizontal>Informações</Divider>
+      <Card.Content extra>
+        <DataAniversario data={data.dados.data_nascimento} />
+        <Icon circular name='mail' />{data.dados.email}<br/>
+        <Icon circular name='phone' />{data.dados.telefone_gabinete}<br/>
+      </Card.Content>
+    </div>
+  );
+}
+
+function GetLink(props) {
+  let data = props.data;
+  let url = '/vereadores/' + data.id + '/';
+  return (
+    <Link to={url}>
+      {data.nome}
+    </Link>
+  );
+}
 
 const CardVereador = (props) => (
   <Card color='grey' key={props.dados.id}>
     <Image src={props.dados.foto} />
     <Card.Content>
-      <Card.Header>{props.dados.nome}</Card.Header>
+      <Card.Header>
+        <GetLink data={props.dados}></GetLink>
+      </Card.Header>
       <Card.Meta>
         {props.dados.apelido}
       </Card.Meta>
-      {/* <Observacao observacao={props.dados.observacao}/> */}
-      <EstatisticaVereador dados={props.dados}></EstatisticaVereador>
     </Card.Content>
-    {/* <Card.Content extra>
-      <DataAniversario data={props.dados.data_nascimento} />
-      <Icon circular name='mail' />{props.dados.email}<br/>
-      <Icon circular name='phone' />{props.dados.telefone_gabinete}<br/>
-    </Card.Content> */}
+    <DadosExtras data={props}></DadosExtras>
   </Card>
 )
 

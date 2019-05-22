@@ -25,7 +25,7 @@ export default class ListVereadores extends Component {
     }
 
     carregarVereadores = async () => {
-      await api.get('/vereadores').then(response => {
+      await api.get('/vereadores/').then(response => {
         this.setState({
           isLoaded: true,
           items: response.data,
