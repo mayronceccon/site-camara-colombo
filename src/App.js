@@ -14,6 +14,7 @@ import Vereadores from './pages/Vereadores';
 import ProjetosLei from './pages/ProjetosLei';
 import VereadoresSingle from './pages/VereadoresSingle';
 import Sobre from './pages/Sobre';
+import Indicacoes from './pages/Indicacoes';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <Route exact path="/projetos" component={ProjetosLei}/>
           <Route exact path="/sobre" component={Sobre}/>
           <Route path="/vereadores/:id" component={VereadoresSingle}/>
+          <Route path="/indicacoes/:id" component={Indicacoes}/>
           <Redirect to="/" />
         </Switch>
       </div>
