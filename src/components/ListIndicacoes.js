@@ -32,7 +32,6 @@ export default class ListIndicacoes extends Component {
         url = `/indicacoes/?vereador=${id}`;
       }
       await api.get(url).then(response => {
-        console.log(response);
         this.setState({
           isLoaded: true,
           items: response.data,
@@ -63,8 +62,6 @@ export default class ListIndicacoes extends Component {
 
     render() {
       const { error, isLoaded, indicacoes, items } = this.state;
-      console.log(indicacoes);
-      console.log(items);
       if (error) {        
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
@@ -76,7 +73,7 @@ export default class ListIndicacoes extends Component {
       } else {
         return (
           <Table celled>
-            {/* <Table.Header>
+            <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Número</Table.HeaderCell>
                 <Table.HeaderCell>Data da Pauta</Table.HeaderCell>
@@ -107,7 +104,7 @@ export default class ListIndicacoes extends Component {
                   </Menu>
                 </Table.HeaderCell>
               </Table.Row>
-            </Table.Footer> */}
+            </Table.Footer>
           </Table>
         );
       }
