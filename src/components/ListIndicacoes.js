@@ -32,6 +32,7 @@ export default class ListIndicacoes extends Component {
         url = `/indicacoes/?vereador=${id}`;
       }
       await api.get(url).then(response => {
+        console.log(response);
         this.setState({
           isLoaded: true,
           items: response.data,
@@ -62,7 +63,7 @@ export default class ListIndicacoes extends Component {
 
     render() {
       const { error, isLoaded, indicacoes, items } = this.state;
-      
+      console.log(indicacoes);
       console.log(items);
       if (error) {        
         return <div>Error: {error.message}</div>;
@@ -75,7 +76,7 @@ export default class ListIndicacoes extends Component {
       } else {
         return (
           <Table celled>
-            <Table.Header>
+            {/* <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Número</Table.HeaderCell>
                 <Table.HeaderCell>Data da Pauta</Table.HeaderCell>
@@ -97,14 +98,16 @@ export default class ListIndicacoes extends Component {
               <Table.Row>
                 <Table.HeaderCell colSpan='4'>
                   <Menu floated='right' pagination fluid>
-                    {/* <PaginationPrevius {...items}></PaginationPrevius>                 */}
-                    {/* <Menu.Item onClick={() => this.carregarIndicacoes(items.next)} icon>
+                  <Menu.Item onClick={() => this.carregarIndicacoes(items.previous)} icon>
+                    <Icon name='chevron left' />
+                  </Menu.Item>                
+                    <Menu.Item onClick={() => this.carregarIndicacoes(items.next)} icon>
                       <Icon name='chevron right' />
-                    </Menu.Item> */}
+                    </Menu.Item>
                   </Menu>
                 </Table.HeaderCell>
               </Table.Row>
-            </Table.Footer>
+            </Table.Footer> */}
           </Table>
         );
       }
