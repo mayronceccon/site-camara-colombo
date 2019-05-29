@@ -49,7 +49,7 @@ class VereadoresSingle extends Component {
       );
     } else {
       return (
-        <Card.Group>
+        <Card.Group centered>
           <Card.Content className="card-vereador" key={vereador.id}>
             <CardVereador dados={vereador} extra={true}></CardVereador>
           </Card.Content>

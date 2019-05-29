@@ -1,7 +1,17 @@
 import React from 'react'
 import { Statistic } from 'semantic-ui-react'
 import { Divider } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
+function GetLinkIndicacoes(props) {
+  let data = props.data;
+  let url = '/indicacoes/' + data.id + '/';
+  return (
+    <Link to={url}>
+      Indicações
+    </Link>
+  );
+}
 
 const EstatisticaVereador = (props) => (
   <div>
@@ -17,7 +27,9 @@ const EstatisticaVereador = (props) => (
       </Statistic>
       <Statistic>
         <Statistic.Value>{props.dados.indicacoes.length}</Statistic.Value>
-        <Statistic.Label>Indicações</Statistic.Label>
+        <Statistic.Label>
+          <GetLinkIndicacoes data={props.dados}></GetLinkIndicacoes>
+        </Statistic.Label>
         <Statistic.Label style={label_indicacoes}>(A partir de 2018)</Statistic.Label>
       </Statistic>
     </Statistic.Group>
