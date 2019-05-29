@@ -10,6 +10,31 @@ import {
 } from 'semantic-ui-react'
 import api from '../services/api';
 
+const PaginationPrevius = (props) => {
+  let item = props.items;
+  let isDisabled = false;
+  if (item.previous == null) {
+    isDisabled = true;
+  }
+  return (
+    <Menu.Item disabled={isDisabled} onClick={() => props.onClick(item.previous)} icon>
+      <Icon name='chevron left' />
+    </Menu.Item>
+  )
+}
+
+const PaginationNext = (props) => {
+  let item = props.items;
+  let isDisabled = false;
+  if (item.next == null) {
+    isDisabled = true;
+  }
+  return (
+    <Menu.Item disabled={isDisabled} onClick={() => props.onClick(item.next)} icon>
+      <Icon name='chevron right' />
+    </Menu.Item>
+  )
+}
 
 export default class ListIndicacoes extends Component {
     constructor(props) {
@@ -44,15 +69,6 @@ export default class ListIndicacoes extends Component {
         });
       });
     };
-    
-    PaginationPrevius = (data) => {
-      let item = data.items;
-      return (
-        <Menu.Item onClick={() => this.carregarIndicacoes(item.previous)} icon>
-          <Icon name='chevron left' />
-        </Menu.Item>
-      )
-    }
 
     formatData = (data) => (
       <Moment format="DD/MM/YYYY">
@@ -72,8 +88,8 @@ export default class ListIndicacoes extends Component {
         );
       } else {
         return (
-          <Table celled>
-            <Table.Header>
+          <Table celled textAlign='center' verticalAlign='middle'>
+            <Table.Header fullWidth>
               <Table.Row>
                 <Table.HeaderCell>Número</Table.HeaderCell>
                 <Table.HeaderCell>Data da Pauta</Table.HeaderCell>
@@ -91,16 +107,12 @@ export default class ListIndicacoes extends Component {
                 </Table.Row>              
               ))}
             </Table.Body>
-            <Table.Footer>
-              <Table.Row>
+            <Table.Footer fullWidth>
+              <Table.Row textAlign='center' verticalAlign='middle'>
                 <Table.HeaderCell colSpan='4'>
                   <Menu floated='right' pagination fluid>
-                  <Menu.Item onClick={() => this.carregarIndicacoes(items.previous)} icon>
-                    <Icon name='chevron left' />
-                  </Menu.Item>                
-                    <Menu.Item onClick={() => this.carregarIndicacoes(items.next)} icon>
-                      <Icon name='chevron right' />
-                    </Menu.Item>
+                    <PaginationPrevius items={items} onClick={this.carregarIndicacoes}></PaginationPrevius>
+                    <PaginationNext items={items} onClick={this.carregarIndicacoes}></PaginationNext>
                   </Menu>
                 </Table.HeaderCell>
               </Table.Row>
