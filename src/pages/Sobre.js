@@ -35,12 +35,12 @@ class Sobre extends Component {
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
             <p>
-              Desenvolvido para facilitar a consulta das informações disponibilizadas no site&nbsp;
+              Projeto desenvolvido para facilitar a consulta de informações disponibilizadas no site da Câmara de Vereadores do Município de Colombo/PR&nbsp;
               <a 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 href="http://camaracolombo.pr.gov.br">
-                http://camaracolombo.pr.gov.br
+                (http://camaracolombo.pr.gov.br)
                 </a>.
             </p>
           </Accordion.Content>
