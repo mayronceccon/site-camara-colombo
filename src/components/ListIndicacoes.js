@@ -5,36 +5,9 @@ import {
   Dimmer,
   Loader,
   Table,
-  Menu,
-  Icon
 } from 'semantic-ui-react'
 import api from '../services/api';
-
-const PaginationPrevius = (props) => {
-  let item = props.items;
-  let isDisabled = false;
-  if (item.previous == null) {
-    isDisabled = true;
-  }
-  return (
-    <Menu.Item disabled={isDisabled} onClick={() => props.onClick(item.previous)} icon>
-      <Icon name='chevron left' />
-    </Menu.Item>
-  )
-}
-
-const PaginationNext = (props) => {
-  let item = props.items;
-  let isDisabled = false;
-  if (item.next == null) {
-    isDisabled = true;
-  }
-  return (
-    <Menu.Item disabled={isDisabled} onClick={() => props.onClick(item.next)} icon>
-      <Icon name='chevron right' />
-    </Menu.Item>
-  )
-}
+import MyPaginacao from '../components/MyPaginacao';
 
 export default class ListIndicacoes extends Component {
     constructor(props) {
@@ -61,7 +34,12 @@ export default class ListIndicacoes extends Component {
         url = `/indicacoes/`;
       }
 
-      await api.get(url).then(response => {
+      await api.get(url, {
+        cache: {
+          maxAge: 60 * 60 * 1000, // 60 minutos
+          exclude: { query: false }
+        }
+      }).then(response => {
         this.setState({
           isLoaded: true,
           items: response.data,
@@ -116,11 +94,8 @@ export default class ListIndicacoes extends Component {
             </Table.Body>
             <Table.Footer fullWidth>
               <Table.Row textAlign='center' verticalAlign='middle'>
-                <Table.HeaderCell colSpan='4'>
-                  <Menu floated='right' pagination fluid>
-                    <PaginationPrevius items={items} onClick={this.carregarIndicacoes}></PaginationPrevius>
-                    <PaginationNext items={items} onClick={this.carregarIndicacoes}></PaginationNext>
-                  </Menu>
+                <Table.HeaderCell colSpan='5'>                  
+                  <MyPaginacao items={items} onClick={this.carregarIndicacoes}></MyPaginacao>                  
                 </Table.HeaderCell>
               </Table.Row>
             </Table.Footer>
