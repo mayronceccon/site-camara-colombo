@@ -51,11 +51,16 @@ export default class ListIndicacoes extends Component {
       this.carregarIndicacoes();      
     }
     
-    carregarIndicacoes = async (url, pagination) => {
-      if (url === undefined) {
-        const { id } = this.props.match.params;
+    carregarIndicacoes = async (url) => {      
+      const { id } = this.props.match.params;
+      if (url === undefined && id !== undefined) {
         url = `/indicacoes/?vereador=${id}`;
       }
+
+      if (url === undefined && id === undefined) {
+        url = `/indicacoes/`;
+      }
+
       await api.get(url).then(response => {
         this.setState({
           isLoaded: true,
@@ -94,6 +99,7 @@ export default class ListIndicacoes extends Component {
                 <Table.HeaderCell>Número</Table.HeaderCell>
                 <Table.HeaderCell>Data da Pauta</Table.HeaderCell>
                 <Table.HeaderCell>Assunto</Table.HeaderCell>
+                <Table.HeaderCell>Vereador</Table.HeaderCell>
                 <Table.HeaderCell>Destinatário</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
@@ -103,6 +109,7 @@ export default class ListIndicacoes extends Component {
                   <Table.Cell>{item.numero}</Table.Cell>
                   <Table.Cell>{this.formatData(item.pauta.data_sessao)}</Table.Cell>
                   <Table.Cell>{item.assunto}</Table.Cell>
+                  <Table.Cell>{item.vereador.nome}</Table.Cell>
                   <Table.Cell>{item.destinatario.nome}</Table.Cell>
                 </Table.Row>              
               ))}
