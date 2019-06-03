@@ -14,7 +14,7 @@ export default class ListIndicacoes extends Component {
       super(props);
       this.state = {
         error: null,
-        isLoaded: false,
+        isLoaded: null,
         items: [],
         indicacoes: [],
       };
@@ -24,7 +24,11 @@ export default class ListIndicacoes extends Component {
       this.carregarIndicacoes();      
     }
     
-    carregarIndicacoes = async (url) => {      
+    carregarIndicacoes = async (url) => {
+      this.setState({
+        isLoaded: false,
+      })
+      
       const { id } = this.props.match.params;
       if (url === undefined && id !== undefined) {
         url = `/indicacoes/?vereador=${id}`;
