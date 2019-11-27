@@ -70,7 +70,7 @@ export default class ListProjetosLeis extends Component {
     }
   
     componentDidMount() {
-      fetch("https://camaracolombo.com.br:5005/projetos_lei/")
+      fetch("https://api.cidadaonacamara.com.br/projetos_lei/")
         .then(res => res.json())
         .then(
           (result) => {

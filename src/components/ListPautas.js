@@ -19,7 +19,7 @@ export default class ListPautas extends Component {
     }
   
     componentDidMount() {
-      fetch("https://camaracolombo.com.br:5005/pautas/")
+      fetch("https://api.cidadaonacamara.com.br/api/pautas/")
         .then(res => res.json())
         .then(
           (result) => {
