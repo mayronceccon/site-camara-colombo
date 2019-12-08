@@ -18,15 +18,15 @@ const EstatisticaVereador = (props) => (
     <Divider horizontal>Solicitações</Divider>
     <Statistic.Group horizontal>
       <Statistic>
-        <Statistic.Value>{props.dados.legislaturas.length}</Statistic.Value>
+        <Statistic.Value>{props.dados.legislaturas}</Statistic.Value>
         <Statistic.Label>Anos de Legislaturas</Statistic.Label>
       </Statistic>
       <Statistic>
-        <Statistic.Value>{props.dados.projetos.length}</Statistic.Value>
+        <Statistic.Value>{props.dados.projetos}</Statistic.Value>
         <Statistic.Label>Projetos Apresentados</Statistic.Label>
       </Statistic>
       <Statistic>
-        <Statistic.Value>{props.dados.indicacoes.length}</Statistic.Value>
+        <Statistic.Value>{props.dados.indicacoes}</Statistic.Value>
         <Statistic.Label>
           <GetLinkIndicacoes data={props.dados}></GetLinkIndicacoes>
         </Statistic.Label>
