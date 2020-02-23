@@ -185,7 +185,7 @@ export default class ListIndicacoes extends Component {
                   <Table.Row key={item.id}>
                     <Table.Cell>{item.numero}</Table.Cell>
                     <Table.Cell>{this.formatData(item.pauta.data_sessao)}</Table.Cell>
-                    <Table.Cell>{item.assunto}</Table.Cell>
+                    <Table.Cell textAlign='left'>{item.assunto}</Table.Cell>
                     <Table.Cell>{this.getVereador(item)}</Table.Cell>
                     <Table.Cell>{this.getDestinatario(item)}</Table.Cell>
                   </Table.Row>
@@ -193,8 +193,8 @@ export default class ListIndicacoes extends Component {
               </Table.Body>
               <Table.Footer fullWidth>
                 <Table.Row textAlign='center' verticalAlign='middle'>
-                  <Table.HeaderCell colSpan='5'>                  
-                    <MyPaginacao items={items} onClick={this.carregarIndicacoes}></MyPaginacao>                  
+                  <Table.HeaderCell colSpan='5'>
+                    <MyPaginacao items={items} onClick={this.carregarIndicacoes}></MyPaginacao>
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Footer>
