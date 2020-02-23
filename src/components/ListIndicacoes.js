@@ -140,11 +140,25 @@ export default class ListIndicacoes extends Component {
       <Moment format="DD/MM/YYYY">
         {data}
       </Moment>
-    )   
+    )
+
+    getVereador = (item) => {
+      if (item.vereador === null) {
+        return ""
+      }
+      return item.vereador.nome
+    }
+
+    getDestinatario = (item) => {
+      if (item.destinatario === null) {
+        return ""
+      }
+      return item.destinatario.nome
+    }
 
     render() {
       const { error, isLoaded, indicacoes, items } = this.state;
-      if (error) {        
+      if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
         return (
@@ -167,14 +181,14 @@ export default class ListIndicacoes extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {indicacoes.map(item => (                  
+                {indicacoes.map(item => (
                   <Table.Row key={item.id}>
                     <Table.Cell>{item.numero}</Table.Cell>
                     <Table.Cell>{this.formatData(item.pauta.data_sessao)}</Table.Cell>
                     <Table.Cell>{item.assunto}</Table.Cell>
-                    <Table.Cell>{item.vereador.nome}</Table.Cell>
-                    <Table.Cell>{item.destinatario.nome}</Table.Cell>
-                  </Table.Row>              
+                    <Table.Cell>{this.getVereador(item)}</Table.Cell>
+                    <Table.Cell>{this.getDestinatario(item)}</Table.Cell>
+                  </Table.Row>
                 ))}
               </Table.Body>
               <Table.Footer fullWidth>
