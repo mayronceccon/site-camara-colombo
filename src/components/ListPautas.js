@@ -7,6 +7,7 @@ import {
   Dimmer, 
   Loader
 } from 'semantic-ui-react'
+import api from '../services/api';
 
 export default class ListPautas extends Component {
     constructor(props) {
@@ -19,25 +20,27 @@ export default class ListPautas extends Component {
     }
   
     componentDidMount() {
-      fetch("https://api.cidadaonacamara.com.br/api/pautas/")
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              items: result.results
-            });
-          },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
+      this.carregarDados()
+    }
+
+    carregarDados = async () => {
+      let url = 'pautas/'
+      await api.get(url, {
+        cache: {
+          maxAge: 60 * 60 * 1000, // 60 minutos
+          exclude: { query: false }
+        }
+      }).then(response => {
+        this.setState({
+          isLoaded: true,
+          items: response.data.results
+        });
+      }).catch(error => {
+        this.setState({
+          isLoaded: true,
+          error
+        });
+      });
     }
 
     formatData = (data) => (
